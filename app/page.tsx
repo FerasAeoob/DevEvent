@@ -1,0 +1,12 @@
+import ExploteBtn from "@/components/ExploteBtn";
+
+const Page = () => {
+    return (
+        <section>
+            <h1 className="text-center">The Hub For Every Dev <br/> Event You Can't Miss</h1>
+            <p className="text-center mt-5">Hackathons, Meetups, and Conferences, All in one Place</p>
+            <ExploteBtn />
+        </section>
+    )
+}
+export default Page
