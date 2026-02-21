@@ -1,0 +1,50 @@
+export const events = [
+  {
+    title: "Next.js Conf 2026",
+    image: "/images/event1.png",
+    slug: "nextjs-conf-2026",
+    location: "San Francisco, CA",
+    date: "October 24, 2026",
+    time: "9:00 AM",
+  },
+  {
+    title: "React Summit 2026",
+    image: "/images/event2.png",
+    slug: "react-summit-2026",
+    location: "Amsterdam, Netherlands",
+    date: "June 12, 2026",
+    time: "10:00 AM",
+  },
+  {
+    title: "JSWorld Conference",
+    image: "/images/event3.png",
+    slug: "jsworld-conference",
+    location: "Online",
+    date: "March 15, 2026",
+    time: "2:00 PM",
+  },
+  {
+    title: "TypeScript Congress",
+    image: "/images/event4.png",
+    slug: "typescript-congress",
+    location: "Berlin, Germany",
+    date: "September 8, 2026",
+    time: "9:30 AM",
+  },
+  {
+    title: "Node.js Interactive",
+    image: "/images/event5.png",
+    slug: "nodejs-interactive",
+    location: "Austin, TX",
+    date: "November 10, 2026",
+    time: "11:00 AM",
+  },
+  {
+    title: "Vuejs Amsterdam 2026",
+    image: "/images/event6.png",
+    slug: "vuejs-amsterdam-2026",
+    location: "Amsterdam, Netherlands",
+    date: "February 10, 2026",
+    time: "8:30 AM",
+  }
+];

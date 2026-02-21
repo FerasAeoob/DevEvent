@@ -280,3 +280,6 @@
   z-index: 3;
   overflow: hidden;
 }
+li::marker {
+  content: none; /* hides the marker */
+}
