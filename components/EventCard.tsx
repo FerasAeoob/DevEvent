@@ -14,6 +14,10 @@ interface Props {
 }
 
 const EventCard = ({ title, image, slug, location, date, time }: Props) => {
+    const formattedDate = new Date(date)
+        .toLocaleDateString("en-GB")
+        .replace(/\//g, "-");
+
     const handleClick = () => {
         posthog.capture('event_card_clicked', {
             event_title: title,
@@ -41,7 +45,7 @@ const EventCard = ({ title, image, slug, location, date, time }: Props) => {
                 <div className="datetime">
                     <div>
                         <Image src="/icons/calendar.svg" alt="date" width={14} height={14}/>
-                        <p className="date">{date}</p>
+                        <p className="date">{formattedDate}</p>
                     </div>
                     <div>
                         <Image src="/icons/clock.svg" alt="time" width={14} height={14}/>
