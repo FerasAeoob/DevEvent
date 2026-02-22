@@ -85,7 +85,7 @@ EventSchema.pre<IEvent>('validate', function () {
 /**
  * Export the model, ensuring no duplicate model compilation during Next.js HMR.
  */
-const EventModel: Model<IEvent> =
+const Event: Model<IEvent> =
     mongoose.models.Event || mongoose.model<IEvent>('Event', EventSchema);
 
-export default EventModel;
+export default Event;
