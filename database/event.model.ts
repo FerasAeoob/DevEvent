@@ -37,8 +37,11 @@ const EventSchema: Schema = new Schema(
         audience: { type: String, required: true, trim: true },
         agenda: {
             type: [String],
-            required: true,
-            validate: [(v: string[]) => v.length > 0, 'Agenda cannot be empty']
+            required: [true, 'Agenda is required'],
+            validate: {
+                validator: (v: string[]) => v.length > 0,
+                message: 'At least one agenda item is required',
+            },
         },
         organizer: { type: String, required: true, trim: true },
         tags: {
