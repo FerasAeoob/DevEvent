@@ -1,9 +1,9 @@
 
 import {notFound} from "next/navigation";
 import Image from "next/image";
-
+import Bookevent from "@/components/BookEvent";
 import {IEvent} from "@/database";
-
+import {getSimilarEventsBySlug} from "@/lib/actions/event.actions";
 import EventCard from "@/components/EventCard";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -67,9 +67,9 @@ const EventDetailsPage = async ({ params }: { params: Promise<{ slug: string }>}
 
     if(!description) return notFound();
 
-    const bookings = 10;
+    const bookings = 2;
 
-
+    const similarevnent: IEvent[] = await getSimilarEventsBySlug(slug);
 
     return (
         <section id="event">
@@ -115,22 +115,35 @@ const EventDetailsPage = async ({ params }: { params: Promise<{ slug: string }>}
                     <div className="signup-card">
                         <h2>Book Your Spot</h2>
                         {bookings > 0 ? (
-                            <p className="text-sm">
-                                Join {bookings} people who have already booked their spot!
+                            <p className={"text-sm"}>
+                                Join {bookings} Developers who have already booked their spot.
                             </p>
-                        ): (
-                            <p className="text-sm">Be the first to book your spot!</p>
-                        )}
+                        ):
+                            (
+                                <p>
+                                    <p className={"text-sm"}>
+                                        Be the first to book your spot.
+                                    </p>
+                                </p>)}
+                        <Bookevent />
+
 
 
                     </div>
+
                 </aside>
             </div>
-
             <div className="flex w-full flex-col gap-4 pt-20">
                 <h2>Similar Events</h2>
-
+                <div className="events">
+                    {similarevnent.length > 0 && similarevnent.map((similarevnent: IEvent) => (
+                        <EventCard key={similarevnent.title} {...similarevnent}/>
+                        )
+                    )}
+                </div>
             </div>
+
+
         </section>
     )
 }

@@ -25,8 +25,6 @@ export async function POST(req: NextRequest) {
         const tagsValue = formData.get('tags') as string;
         const agendaValue = formData.get('agenda') as string;
 
-        console.log('Raw tags value:', tagsValue);
-        console.log('Raw agenda value:', agendaValue);
 
         let tags = [];
         let agenda = [];
@@ -84,6 +82,5 @@ export async function GET() {
 
         return NextResponse.json({ message: 'Events fetched successfully', events }, { status: 200 });
     } catch (e) {
-        return NextResponse.json({ message: 'Event fetching failed', error: e }, { status: 500 });
-    }
-}
+        return NextResponse.json({ message: 'Event fetching failed', error: e instanceof Error ? e.message : 'Unknown' }, { status: 500 });
+    }}

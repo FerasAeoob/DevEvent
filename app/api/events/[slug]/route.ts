@@ -30,8 +30,7 @@ export async function GET(
   } catch (error) {
     console.error("Error fetching single event:", error);
     return NextResponse.json(
-        { message: "Failed to fetch event", error: error instanceof Error ? error.message : "Unknown error" },
+        { message: "Failed to fetch event" },
         { status: 500 }
-    );
-  }
+    );  }
 }
